@@ -1,0 +1,29 @@
+{
+  "name": "connect-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sheweny/connect-db.git"
+  },
+  "keywords": [
+    "database"
+  ],
+  "author": "Natchi59 Smaug6739",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sheweny/connect-db/issues"
+  },
+  "homepage": "https://github.com/Sheweny/connect-db#readme",
+  "dependencies": {
+    "collection-data": "^1.0.0",
+    "mongoose": "^6.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.4"
+  }
+}
