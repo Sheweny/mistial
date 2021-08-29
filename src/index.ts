@@ -1,6 +1,8 @@
 import type {Config, DefaultConfig, Options} from "../typings";
 import * as url from "url";
 import * as _ from "lodash";
+import Dialect from "./core/Dialect";
+import Mongodb from "./dialects/mongodb";
 
 /**
  * This is the main class, the entry point to mistial
@@ -11,6 +13,11 @@ class Mistial {
      */
     public options: Options;
 
+    /**
+     * the instance of the current dialect
+     * @private
+     */
+    private currentDialect: Mongodb | undefined
     /**
      * Instantiate mistial
      *
@@ -80,6 +87,16 @@ class Mistial {
             throw new Error('Dialect needs to be explicitly')
         }
         this.options = {...config};
+
+        this.init()
+    }
+
+    private init(): void {
+        switch (this.options.dialect) {
+            case "mongodb":
+                this.currentDialect = new Mongodb(this)
+                break
+        }
     }
 }
 
