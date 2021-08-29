@@ -1,10 +1,11 @@
 {
-  "name": "connect-db",
+  "name": "mistial",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "repository": {
     "type": "git",
@@ -13,17 +14,18 @@
   "keywords": [
     "database"
   ],
-  "author": "Natchi59 Smaug6739",
+  "author": "Sheweny",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Sheweny/connect-db/issues"
   },
   "homepage": "https://github.com/Sheweny/connect-db#readme",
   "dependencies": {
-    "collection-data": "^1.0.0",
-    "mongoose": "^6.0.2"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/node": "^16.7.4"
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.7.4",
+    "typescript": "^4.4.2"
   }
 }
