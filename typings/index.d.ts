@@ -1,42 +1,37 @@
-import { Collection } from "collection-data";
-import { ConnectOptions, Document, Model, Schema } from "mongoose";
+/**
+ * The current list of dialect supported
+ */
+export type Dialect = 'mongodb' | 'postgres' | 'mysql' | 'sqlite' | 'mariadb' | 'mssql';
 
-//#region Classes
-
-export class ConnectMongo {
-  public constructor(uri: string, options?: MongooseOptions);
-
-  public db?: typeof import("mongoose");
-  public directory?: string;
-  public models?: Collection<string, Model<unknown, {}, {}>>;
-
-  public registerModels(
-    directory: string | undefined
-  ): Promise<Collection<string, Model<unknown, {}, {}>>>;
-  public addModel(name: string, schema: Schema): Model<unknown, {}, {}>;
-  public deleteModel(
-    name: string
-  ): Collection<string, Model<unknown, {}, {}>> | undefined;
-  public getModel(name: string): Model<unknown, {}, {}> | undefined;
-  public getData(
-    collection: string,
-    searchValues: object,
-    creationDocument?: CreationDocumentOptions
-  ): Promise<Document<any, any, unknown> | null | undefined>;
+/**
+ * The default configuration of the main class
+ */
+export interface DefaultConfig {
+    database: string;
+    host: string;
+    username: string;
+    password: null;
+    port: number;
+    modelDirectory?: string;
+    dialectModuleOptions: {};
 }
 
-//#endregion Classes
-
-//#region Interfaces
-
-interface CreationDocumentOptions {
-  createDocument?: boolean;
-  values?: string;
+/**
+ * The configuration of the main class
+ */
+export interface Config {
+    dialect: Dialect;
+    uri?: string;
+    database?: string;
+    host?: string;
+    username?: string;
+    password?: string | null;
+    port?: number;
+    modelDirectory?: string;
+    dialectModuleOptions?: object;
 }
 
-interface MongooseOptions {
-  connectOptions?: ConnectOptions;
-  directory?: string;
-}
-
-//#endregion Interfaces
+/**
+ * Options for the constructor of Mistial main class
+ */
+export interface Options extends Config {}
